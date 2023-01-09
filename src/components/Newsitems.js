@@ -19,7 +19,7 @@ export class Newsitems extends Component {
                 ? "https://c.ndtvimg.com/2023-01/fibul5ls_chhattisgarh-church-attack_625x300_02_January_23.jpg"
                 : imgurl
             }
-            className="card-img-top"
+            className="card-img-top cardImg"
             alt="..."
           />
           <div className="card-body">

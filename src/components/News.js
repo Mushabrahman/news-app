@@ -20,7 +20,7 @@ export class News extends Component {
   };
   constructor(props) {
     super(props);
-    console.log("hey");
+    // console.log("hey");
     this.state = {
       articles: [],
       loading: true,
@@ -35,7 +35,7 @@ export class News extends Component {
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
-    console.log(parsedData);
+    // console.log(parsedData);
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
@@ -65,7 +65,7 @@ export class News extends Component {
 
     let data = await fetch(url);
     let parsedData = await data.json();
-    console.log(parsedData);
+    // console.log(parsedData);
     this.setState({
       articles: this.state.articles.concat(parsedData.articles),
       totalResults: parsedData.totalResults,
@@ -87,11 +87,11 @@ export class News extends Component {
           hasMore={(this.state.articles).length !== this.state.totalResults}
           loader={<Spinner />}
         >
-          <div className="container">
+          <div className="container main">
             <div className="row">
-              {this.state.articles.map((element) => {
+              {this.state.articles.map((element, ind) => {
                 return (
-                  <div className="col-md-4" keys={element.url}>
+                  <div className="col-md-4" keys={element.url} key={ind}>
                     <Newsitems
                       title={element.title ? element.title.slice(0, 44) : ""}
                       description={
